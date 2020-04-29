@@ -1,0 +1,10 @@
+.\out_omvrt1\objects\formatfloat.o: ..\..\py\formatfloat.c
+.\out_omvrt1\objects\formatfloat.o: ..\..\py/mpconfig.h
+.\out_omvrt1\objects\formatfloat.o: ..\nxp_rt1050_60\mpconfigport.h
+.\out_omvrt1\objects\formatfloat.o: ..\nxp_rt1050_60\boards\omvrt1\mpconfigboard.h
+.\out_omvrt1\objects\formatfloat.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\alloca.h
+.\out_omvrt1\objects\formatfloat.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
+.\out_omvrt1\objects\formatfloat.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\out_omvrt1\objects\formatfloat.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\out_omvrt1\objects\formatfloat.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\out_omvrt1\objects\formatfloat.o: ..\..\py/formatfloat.h

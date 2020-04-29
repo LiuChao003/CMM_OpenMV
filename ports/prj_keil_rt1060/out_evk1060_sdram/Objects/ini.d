@@ -1,0 +1,14 @@
+.\out_evk1060_sdram\objects\ini.o: ..\nxp_rt1050_60\omv\ini.c
+.\out_evk1060_sdram\objects\ini.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\out_evk1060_sdram\objects\ini.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\out_evk1060_sdram\objects\ini.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\out_evk1060_sdram\objects\ini.o: ..\nxp_rt1050_60\omv\ini.h
+.\out_evk1060_sdram\objects\ini.o: ..\nxp_rt1050_60\omv\ff_wrapper.h
+.\out_evk1060_sdram\objects\ini.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\out_evk1060_sdram\objects\ini.o: ..\..\lib\oofatfs\ff.h
+.\out_evk1060_sdram\objects\ini.o: ..\..\lib\oofatfs\ffconf.h
+.\out_evk1060_sdram\objects\ini.o: ..\..\py/mpconfig.h
+.\out_evk1060_sdram\objects\ini.o: ..\nxp_rt1050_60\mpconfigport.h
+.\out_evk1060_sdram\objects\ini.o: ..\nxp_rt1050_60\boards\imxrtevk105x\mpconfigboard.h
+.\out_evk1060_sdram\objects\ini.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\alloca.h
+.\out_evk1060_sdram\objects\ini.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\ctype.h

@@ -1,0 +1,10 @@
+.\out_omvrt1\objects\smallint.o: ..\..\py\smallint.c
+.\out_omvrt1\objects\smallint.o: ..\..\py/smallint.h
+.\out_omvrt1\objects\smallint.o: ..\..\py/mpconfig.h
+.\out_omvrt1\objects\smallint.o: ..\nxp_rt1050_60\mpconfigport.h
+.\out_omvrt1\objects\smallint.o: ..\nxp_rt1050_60\boards\omvrt1\mpconfigboard.h
+.\out_omvrt1\objects\smallint.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\alloca.h
+.\out_omvrt1\objects\smallint.o: ..\..\py/misc.h
+.\out_omvrt1\objects\smallint.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\out_omvrt1\objects\smallint.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\out_omvrt1\objects\smallint.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h

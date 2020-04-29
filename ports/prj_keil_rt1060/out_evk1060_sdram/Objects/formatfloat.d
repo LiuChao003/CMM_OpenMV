@@ -1,0 +1,10 @@
+.\out_evk1060_sdram\objects\formatfloat.o: ..\..\py\formatfloat.c
+.\out_evk1060_sdram\objects\formatfloat.o: ..\..\py/mpconfig.h
+.\out_evk1060_sdram\objects\formatfloat.o: ..\nxp_rt1050_60\mpconfigport.h
+.\out_evk1060_sdram\objects\formatfloat.o: ..\nxp_rt1050_60\boards\imxrtevk105x\mpconfigboard.h
+.\out_evk1060_sdram\objects\formatfloat.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\alloca.h
+.\out_evk1060_sdram\objects\formatfloat.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
+.\out_evk1060_sdram\objects\formatfloat.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\out_evk1060_sdram\objects\formatfloat.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\out_evk1060_sdram\objects\formatfloat.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\out_evk1060_sdram\objects\formatfloat.o: ..\..\py/formatfloat.h

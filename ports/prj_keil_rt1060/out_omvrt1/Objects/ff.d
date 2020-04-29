@@ -1,0 +1,10 @@
+.\out_omvrt1\objects\ff.o: ..\..\lib\oofatfs\ff.c
+.\out_omvrt1\objects\ff.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\out_omvrt1\objects\ff.o: ..\..\lib\oofatfs\ff.h
+.\out_omvrt1\objects\ff.o: ..\..\lib\oofatfs\ffconf.h
+.\out_omvrt1\objects\ff.o: ..\..\py/mpconfig.h
+.\out_omvrt1\objects\ff.o: ..\nxp_rt1050_60\mpconfigport.h
+.\out_omvrt1\objects\ff.o: ..\nxp_rt1050_60\boards\omvrt1\mpconfigboard.h
+.\out_omvrt1\objects\ff.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\alloca.h
+.\out_omvrt1\objects\ff.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\out_omvrt1\objects\ff.o: ..\..\lib\oofatfs\diskio.h

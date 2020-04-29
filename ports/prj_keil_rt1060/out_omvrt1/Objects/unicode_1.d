@@ -1,0 +1,9 @@
+.\out_omvrt1\objects\unicode_1.o: ..\..\lib\oofatfs\option\unicode.c
+.\out_omvrt1\objects\unicode_1.o: ..\..\lib\oofatfs\ffunicode.c
+.\out_omvrt1\objects\unicode_1.o: ..\..\lib\oofatfs\ff.h
+.\out_omvrt1\objects\unicode_1.o: ..\..\lib\oofatfs\ffconf.h
+.\out_omvrt1\objects\unicode_1.o: ..\..\py/mpconfig.h
+.\out_omvrt1\objects\unicode_1.o: ..\nxp_rt1050_60\mpconfigport.h
+.\out_omvrt1\objects\unicode_1.o: ..\nxp_rt1050_60\boards\omvrt1\mpconfigboard.h
+.\out_omvrt1\objects\unicode_1.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\alloca.h
+.\out_omvrt1\objects\unicode_1.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h

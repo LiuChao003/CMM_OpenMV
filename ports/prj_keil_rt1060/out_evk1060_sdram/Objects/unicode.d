@@ -1,0 +1,10 @@
+.\out_evk1060_sdram\objects\unicode.o: ..\..\py\unicode.c
+.\out_evk1060_sdram\objects\unicode.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\out_evk1060_sdram\objects\unicode.o: ..\..\py/unicode.h
+.\out_evk1060_sdram\objects\unicode.o: ..\..\py/mpconfig.h
+.\out_evk1060_sdram\objects\unicode.o: ..\nxp_rt1050_60\mpconfigport.h
+.\out_evk1060_sdram\objects\unicode.o: ..\nxp_rt1050_60\boards\imxrtevk105x\mpconfigboard.h
+.\out_evk1060_sdram\objects\unicode.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\alloca.h
+.\out_evk1060_sdram\objects\unicode.o: ..\..\py/misc.h
+.\out_evk1060_sdram\objects\unicode.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\out_evk1060_sdram\objects\unicode.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h

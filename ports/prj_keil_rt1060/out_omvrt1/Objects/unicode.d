@@ -1,0 +1,10 @@
+.\out_omvrt1\objects\unicode.o: ..\..\py\unicode.c
+.\out_omvrt1\objects\unicode.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\out_omvrt1\objects\unicode.o: ..\..\py/unicode.h
+.\out_omvrt1\objects\unicode.o: ..\..\py/mpconfig.h
+.\out_omvrt1\objects\unicode.o: ..\nxp_rt1050_60\mpconfigport.h
+.\out_omvrt1\objects\unicode.o: ..\nxp_rt1050_60\boards\omvrt1\mpconfigboard.h
+.\out_omvrt1\objects\unicode.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\alloca.h
+.\out_omvrt1\objects\unicode.o: ..\..\py/misc.h
+.\out_omvrt1\objects\unicode.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\out_omvrt1\objects\unicode.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
