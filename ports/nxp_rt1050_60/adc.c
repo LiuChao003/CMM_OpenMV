@@ -36,7 +36,7 @@
 #include "fsl_adc.h"
 
 #include "genhdr/pins.h"
-
+#include "aia_cmm/cfg_mux_mgr.h"
 #if 1//MICROPY_HW_ENABLE_ADC
 
 /// \moduleref pyb
@@ -134,8 +134,13 @@ STATIC void adc_init_single(pyb_obj_adc_t *adc_obj) {
 
     if (ADC_FIRST_GPIO_CHANNEL <= adc_obj->channel && adc_obj->channel <= ADC_LAST_GPIO_CHANNEL) {
         // Channels 0-16 correspond to real pins. Configure the GPIO pin in ADC mode.
-        const pin_obj_t *pin = pin_adc1[adc_obj->channel];
-        mp_hal_ConfigGPIO(pin, 2/*MP_HAL_PIN_MODE_ADC*/, MP_HAL_PIN_PULL_NONE);
+//        const pin_obj_t *pin = pin_adc1[adc_obj->channel];
+		
+		MuxItem_t mux_ADC;
+		Mux_Take(adc_obj,"adc",adc_obj->channel,"channel",&mux_ADC);
+		mp_hal_ConfigGPIO(mux_ADC.pPinObj, 2 /*MP_HAL_PIN_MODE_ADC*/, MP_HAL_PIN_PULL_NONE); //MP_HAL_PIN_PULL_NONE  GPIO_MODE_INPUT_PUP_WEAK
+		
+//        mp_hal_ConfigGPIO(pin, 2/*MP_HAL_PIN_MODE_ADC*/, MP_HAL_PIN_PULL_NONE);
     }
 
     adcx_init_periph(kADC_Resolution12Bit);
@@ -172,7 +177,7 @@ STATIC void adc_print(const mp_print_t *print, mp_obj_t self_in, mp_print_kind_t
 
 /// \classmethod \constructor(pin)
 /// Create an ADC object associated with the given pin.
-/// This allows you to then read analog values on that pin.
+/// This allows you to then read analog values on that pin.  #define pyb_pin_A1 pin_AD_B1_11
 STATIC mp_obj_t adc_make_new(const mp_obj_type_t *type, size_t n_args, size_t n_kw, const mp_obj_t *args) {
     // check number of arguments
     mp_arg_check_num(n_args, n_kw, 1, 1, false);
@@ -181,11 +186,20 @@ STATIC mp_obj_t adc_make_new(const mp_obj_type_t *type, size_t n_args, size_t n_
     mp_obj_t pin_obj = args[0];
 
     uint32_t channel;
-
+	uint32_t channel_id;
+//	channel_id=mp_obj_get_int(pin_obj);
     if (MP_OBJ_IS_INT(pin_obj)) {
         channel = adc_get_internal_channel(mp_obj_get_int(pin_obj));
     } else {
         const pin_obj_t *pin = pin_find(pin_obj);
+//		  const pin_obj_t *pin = &pyb_pin_A5;
+//	MuxItem_t mux_ADC;
+////	Mux_Take(uart_obj, "uart", 1, "TXD", &mux_TXD);
+////	mux_ADC.pPinObj=&pyb_pin_A0;		
+////	pyb_obj_adc_t *adc_obj;	
+//	Mux_Take(pin_obj,"adc",pin->adc_channel,"channel",&mux_ADC);		
+//	const pin_obj_t *pin = mux_ADC.pPinObj;	
+		
         if ((pin->adc_num & PIN_ADC1) == 0) {
             // No ADC1 function on that pin
             nlr_raise(mp_obj_new_exception_msg_varg(&mp_type_ValueError, "pin %q does not have ADC capabilities", pin->name));
