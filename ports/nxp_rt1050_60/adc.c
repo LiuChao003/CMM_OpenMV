@@ -54,7 +54,13 @@
 ///     val = adc.read_core_vref()      # read MCU VREF
 
   //here the var means the address of the adc of STM
+uint8_t flag_BASE=1; 
+
+
 #define ADC_BASE                 ADC1  
+
+#define ADC_2_BASE                 ADC2  
+
 
 #define ADC_CHANNEL_GROUP 0U
 #define ADC_FIRST_GPIO_CHANNEL  (0)
@@ -113,18 +119,29 @@ STATIC bool is_adcx_channel(int channel) {
 /* can not find this function in our rt evk board, think that we can rewrite it in our style*/
 STATIC void adc_wait_for_eoc_or_timeout(int32_t timeout) {
     uint32_t tickstart = HAL_GetTick();
-    while (0U == ADC_GetChannelStatusFlags(ADC_BASE,ADC_CHANNEL_GROUP)) 
-{
-        if (((HAL_GetTick() - tickstart ) > timeout)) {
-            break; // timeout
-        }
-}
+	if (flag_BASE==0)
+		while (0U == ADC_GetChannelStatusFlags(ADC_BASE,ADC_CHANNEL_GROUP)) 
+		{
+			if (((HAL_GetTick() - tickstart ) > timeout)) {
+				break; // timeout
+			}
+		}
+	else if (flag_BASE==1)
+		while (0U == ADC_GetChannelStatusFlags(ADC_BASE,ADC_CHANNEL_GROUP)) 
+		{
+			if (((HAL_GetTick() - tickstart ) > timeout)) {
+				break; // timeout
+			}
+		}
 }
 
 STATIC void adcx_init_periph(uint32_t resolution) {
      ADC_GetDefaultConfig(&adcConfigStruct);
      adcConfigStruct.resolution = resolution;
+	if (flag_BASE==0)
      ADC_Init(ADC_BASE, &adcConfigStruct);
+	else if (flag_BASE==1)
+	 ADC_Init(ADC_2_BASE, &adcConfigStruct); 	
 }
 
 STATIC void adc_init_single(pyb_obj_adc_t *adc_obj) {
@@ -135,14 +152,34 @@ STATIC void adc_init_single(pyb_obj_adc_t *adc_obj) {
     if (ADC_FIRST_GPIO_CHANNEL <= adc_obj->channel && adc_obj->channel <= ADC_LAST_GPIO_CHANNEL) {
         // Channels 0-16 correspond to real pins. Configure the GPIO pin in ADC mode.
 //        const pin_obj_t *pin = pin_adc1[adc_obj->channel];
-		
+//		char *ADCSignals[6] = {"ch15", "ch0", "ch9", "ch10", "ch6", "ch5"};
+//		char *ADCSignals[6] = {"A0", "A1", "A2", "A3", "A4", "A5"};
+		char *ADCSignal[1];
+		if ((adc_obj->channel)==15)
+			 ADCSignal[0] = "A0";
+		else if ((adc_obj->channel)==0)
+			 ADCSignal[0] = "A1";	
+		else if ((adc_obj->channel)==9)
+			 ADCSignal[0] = "A2";
+		else if ((adc_obj->channel)==10)
+			 ADCSignal[0] = "A3";
+		else if ((adc_obj->channel)==6)
+			 ADCSignal[0] = "A4";
+		else if ((adc_obj->channel)==5)
+			 ADCSignal[0] = "A5";	
 		MuxItem_t mux_ADC;
-		Mux_Take(adc_obj,"adc",adc_obj->channel,"channel",&mux_ADC);
+//		Mux_Take(adc_obj,"adc",adc_obj->channel,"channel",&mux_ADC);
+		Mux_Take(adc_obj,"adc",-1,ADCSignal[0],&mux_ADC);
 		mp_hal_ConfigGPIO(mux_ADC.pPinObj, 2 /*MP_HAL_PIN_MODE_ADC*/, MP_HAL_PIN_PULL_NONE); //MP_HAL_PIN_PULL_NONE  GPIO_MODE_INPUT_PUP_WEAK
 		
 //        mp_hal_ConfigGPIO(pin, 2/*MP_HAL_PIN_MODE_ADC*/, MP_HAL_PIN_PULL_NONE);
+		if(mux_ADC.szHint[0]==0x31)
+		 flag_BASE=0;
+		else if (mux_ADC.szHint[0]==0x32)
+		 flag_BASE=1;
     }
-
+	
+		
     adcx_init_periph(kADC_Resolution12Bit);
 }
 
@@ -150,13 +187,19 @@ STATIC void adc_config_channel(uint32_t channel) {
     adc_channel_config_t adcChannelConfigStruct;
     adcChannelConfigStruct.channelNumber = channel;
     adcChannelConfigStruct.enableInterruptOnConversionCompleted = false;
+	if (flag_BASE==0)
+    ADC_SetChannelConfig(ADC_BASE, ADC_CHANNEL_GROUP, &adcChannelConfigStruct);
+	else if (flag_BASE==1)
     ADC_SetChannelConfig(ADC_BASE, ADC_CHANNEL_GROUP, &adcChannelConfigStruct);
 }
 
 STATIC uint32_t adc_read_channel() {
     adc_wait_for_eoc_or_timeout(EOC_TIMEOUT);
     uint32_t value;
+	if (flag_BASE==0)
     value = ADC_GetChannelConversionValue(ADC_BASE, ADC_CHANNEL_GROUP);
+	else if (flag_BASE==1)
+    value = ADC_GetChannelConversionValue(ADC_BASE, ADC_CHANNEL_GROUP); 
     return value;
 }
 
